@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yinwei (YWK) | Intelligent Industrial Sewing Machines</title>
+    <title data-i18n="page_title">Yinwei (YWK) | Intelligent Industrial Sewing Machines</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -101,6 +101,50 @@
             font-weight: 600;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
+        }
+
+        /* Language Switcher */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            background: #eef2ff;
+            border: 1px solid #d5defa;
+            border-radius: 30px;
+            padding: 4px;
+        }
+
+        .lang-switch button {
+            border: none;
+            background: transparent;
+            color: #3a56d4;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .lang-switch button.active {
+            background-color: #4361ee;
+            color: #fff;
+        }
+
+        .mobile-menu-btn {
+            margin-left: 0;
+        }
+
+        @media (max-width: 992px) {
+            .nav-actions {
+                gap: 10px;
+            }
         }
 
         .cta-button:hover {
@@ -762,18 +806,23 @@
                 </div>
 
                 <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#video">Video</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#series">Series</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#branch">Overseas</a></li>
+                    <li><a href="#about" data-i18n="nav_about">About</a></li>
+                    <li><a href="#features" data-i18n="nav_features">Features</a></li>
+                    <li><a href="#benefits" data-i18n="nav_benefits">Benefits</a></li>
+                    <li><a href="#products" data-i18n="nav_products">Products</a></li>
+                    <li><a href="#series" data-i18n="nav_series">Series</a></li>
+                    <li><a href="#testimonials" data-i18n="nav_testimonials">Testimonials</a></li>
+                    <li><a href="#branch" data-i18n="nav_overseas">Overseas</a></li>
                 </ul>
 
-                <button class="cta-button">Contact Us</button>
-                <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                <div class="nav-actions">
+                    <div class="lang-switch">
+                        <button id="lang-zh" onclick="setLanguage('zh')">中</button>
+                        <button id="lang-en" onclick="setLanguage('en')">EN</button>
+                    </div>
+                    <button class="cta-button" data-i18n="nav_contact">Contact Us</button>
+                    <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                </div>
             </nav>
         </div>
     </header>
@@ -783,11 +832,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Intelligent <span>Industrial Sewing</span> Solutions</h1>
-                    <p>Yinwei (YWK) designs and manufactures smart industrial sewing machines that drive automation and efficiency for garment, footwear and leather goods factories worldwide. Engineered for precision, built for production.</p>
+                    <h1 data-i18n-html="hero_title">Intelligent <span>Industrial Sewing</span> Solutions</h1>
+                    <p data-i18n="hero_desc">Yinwei (YWK) designs and manufactures smart industrial sewing machines that drive automation and efficiency for garment, footwear and leather goods factories worldwide. Engineered for precision, built for production.</p>
                     <div class="hero-buttons">
-                        <button class="cta-button">Request a Quote</button>
-                        <a href="#video" style="text-decoration:none;display:inline-block;"><button class="secondary-button">Watch Video</button></a>
+                        <button class="cta-button" data-i18n="hero_quote">Request a Quote</button>
+                        <button class="secondary-button" data-i18n="hero_video">Watch Video</button>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -801,13 +850,13 @@
     <section class="video-section" id="video">
         <div class="container">
             <div class="section-title">
-                <h2>See the Machines in Action</h2>
-                <p>Watch our intelligent sewing technology delivering consistent, high-speed stitching in real production environments.</p>
+                <h2 data-i18n="video_title">See the Machines in Action</h2>
+                <p data-i18n="video_desc">Watch our intelligent sewing technology delivering consistent, high-speed stitching in real production environments.</p>
             </div>
             <div class="video-wrapper">
                 <video controls poster="https://www.chanchao.com.tw/exhibitorservicefiles/products/FTXTMMRW2019_276148_51720_C.jpg">
                     <source src="https://tg.122238.xyz/1785635475221-583l4c.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+                    <span data-i18n="video_fallback">Your browser does not support the video tag.</span>
                 </video>
             </div>
         </div>
@@ -817,8 +866,8 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>Smart Features for Modern Manufacturing</h2>
-                <p>Yinwei integrates intelligent control systems and precision mechanics to deliver reliable, automated sewing performance.</p>
+                <h2 data-i18n="features_title">Smart Features for Modern Manufacturing</h2>
+                <p data-i18n="features_desc">Yinwei integrates intelligent control systems and precision mechanics to deliver reliable, automated sewing performance.</p>
             </div>
 
             <div class="features-grid">
@@ -826,48 +875,48 @@
                     <div class="feature-icon">
                         <i class="fas fa-microchip"></i>
                     </div>
-                    <h3>Intelligent Control</h3>
-                    <p>Programmable servo systems and microprocessor-based controls ensure precise stitch formation and consistent seam quality.</p>
+                    <h3 data-i18n="feat_control_t">Intelligent Control</h3>
+                    <p data-i18n="feat_control_d">Programmable servo systems and microprocessor-based controls ensure precise stitch formation and consistent seam quality.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>Automated Operation</h3>
-                    <p>Auto thread trimming, needle positioning and fabric feeding reduce operator workload and deliver uniform output.</p>
+                    <h3 data-i18n="feat_auto_t">Automated Operation</h3>
+                    <p data-i18n="feat_auto_d">Auto thread trimming, needle positioning and fabric feeding reduce operator workload and deliver uniform output.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-bolt"></i>
                     </div>
-                    <h3>Energy Efficient</h3>
-                    <p>Direct-drive servo motors lower power consumption by up to 60% compared with traditional clutch motors.</p>
+                    <h3 data-i18n="feat_energy_t">Energy Efficient</h3>
+                    <p data-i18n="feat_energy_d">Direct-drive servo motors lower power consumption by up to 60% compared with traditional clutch motors.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-industry"></i>
                     </div>
-                    <h3>Rugged Construction</h3>
-                    <p>Heavy-duty cast iron frames and precision-machined parts guarantee stability and long service life in 24/7 production.</p>
+                    <h3 data-i18n="feat_rugged_t">Rugged Construction</h3>
+                    <p data-i18n="feat_rugged_d">Heavy-duty cast iron frames and precision-machined parts guarantee stability and long service life in 24/7 production.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
-                    <h3>High-Speed Performance</h3>
-                    <p>Stitch rates up to 5,000 SPM deliver the throughput demanded by large-scale garment and footwear manufacturers.</p>
+                    <h3 data-i18n="feat_speed_t">High-Speed Performance</h3>
+                    <p data-i18n="feat_speed_d">Stitch rates up to 5,000 SPM deliver the throughput demanded by large-scale garment and footwear manufacturers.</p>
                 </div>
 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3>After-Sales Support</h3>
-                    <p>Dedicated service centers and a global spare parts network keep your production lines running without downtime.</p>
+                    <h3 data-i18n="feat_support_t">After-Sales Support</h3>
+                    <p data-i18n="feat_support_d">Dedicated service centers and a global spare parts network keep your production lines running without downtime.</p>
                 </div>
             </div>
         </div>
@@ -877,8 +926,8 @@
     <section class="benefits" id="benefits">
         <div class="container">
             <div class="section-title">
-                <h2>Why Choose Yinwei?</h2>
-                <p>Partner with a sewing technology manufacturer trusted by garment, footwear and bag factories across Asia.</p>
+                <h2 data-i18n="benefits_title">Why Choose Yinwei?</h2>
+                <p data-i18n="benefits_desc">Partner with a sewing technology manufacturer trusted by garment, footwear and bag factories across Asia.</p>
             </div>
 
             <div class="benefits-grid">
@@ -886,32 +935,32 @@
                     <div class="benefit-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Higher Productivity</h3>
-                    <p>Automation and intelligent controls lift line output and reduce reliance on skilled operators.</p>
+                    <h3 data-i18n="ben_prod_t">Higher Productivity</h3>
+                    <p data-i18n="ben_prod_d">Automation and intelligent controls lift line output and reduce reliance on skilled operators.</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
-                    <h3>Lower Operating Cost</h3>
-                    <p>Energy-efficient direct-drive motors and durable components cut power bills and maintenance spend.</p>
+                    <h3 data-i18n="ben_cost_t">Lower Operating Cost</h3>
+                    <p data-i18n="ben_cost_d">Energy-efficient direct-drive motors and durable components cut power bills and maintenance spend.</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-check-double"></i>
                     </div>
-                    <h3>Consistent Quality</h3>
-                    <p>Precision stitch control delivers uniform seams that meet the standards of global brands.</p>
+                    <h3 data-i18n="ben_qual_t">Consistent Quality</h3>
+                    <p data-i18n="ben_qual_d">Precision stitch control delivers uniform seams that meet the standards of global brands.</p>
                 </div>
 
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-globe-asia"></i>
                     </div>
-                    <h3>Global Service</h3>
-                    <p>Overseas branches and local service centers — including Yinwei (BD) in Bangladesh — keep customers supported.</p>
+                    <h3 data-i18n="ben_glob_t">Global Service</h3>
+                    <p data-i18n="ben_glob_d">Overseas branches and local service centers — including Yinwei (BD) in Bangladesh — keep customers supported.</p>
                 </div>
             </div>
         </div>
@@ -921,24 +970,24 @@
     <section class="products" id="products">
         <div class="container">
             <div class="section-title">
-                <h2>Featured Sewing Machines</h2>
-                <p>A selection of our intelligent industrial sewing machines engineered for diverse materials and applications.</p>
+                <h2 data-i18n="products_title">Featured Sewing Machines</h2>
+                <p data-i18n="products_desc">A selection of our intelligent industrial sewing machines engineered for diverse materials and applications.</p>
             </div>
 
             <div class="products-grid">
                 <div class="product-card">
                     <img src="https://www.chanchao.com.tw/exhibitorservicefiles/products/FTXTMMRW2019_276148_51720_C.jpg" alt="Intelligent Lockstitch Sewing Machine">
                     <div class="product-body">
-                        <h3>Intelligent Lockstitch Machine</h3>
-                        <p>Computerized lockstitch sewing machine with direct-drive servo motor, auto thread trimming and needle positioning for garment production.</p>
+                        <h3 data-i18n="prod_lock_t">Intelligent Lockstitch Machine</h3>
+                        <p data-i18n="prod_lock_d">Computerized lockstitch sewing machine with direct-drive servo motor, auto thread trimming and needle positioning for garment production.</p>
                     </div>
                 </div>
 
                 <div class="product-card">
                     <img src="https://www.chanchao.com.tw/exhibitorservicefiles/products/FTXTMMRW2019_276148_51721_C.jpg" alt="Automated Heavy-Duty Sewing Machine">
                     <div class="product-body">
-                        <h3>Heavy-Duty Automated Machine</h3>
-                        <p>Reinforced machine for synthetic leather, genuine leather and bags — engineered for thick materials and high-torque stitching.</p>
+                        <h3 data-i18n="prod_heavy_t">Heavy-Duty Automated Machine</h3>
+                        <p data-i18n="prod_heavy_d">Reinforced machine for synthetic leather, genuine leather and bags — engineered for thick materials and high-torque stitching.</p>
                     </div>
                 </div>
             </div>
@@ -949,13 +998,13 @@
     <section class="series" id="series">
         <div class="container">
             <div class="section-title">
-                <h2>YWK Product Series</h2>
-                <p>Our complete range of intelligent computerized sewing machines, covering bartack, pattern tacking, punch-sewing and buttonhole applications.</p>
+                <h2 data-i18n="series_title">YWK Product Series</h2>
+                <p data-i18n="series_desc">Our complete range of intelligent computerized sewing machines, covering bartack, pattern tacking, punch-sewing and buttonhole applications.</p>
             </div>
 
             <div class="series-group">
-                <h3><i class="fas fa-circle-notch"></i>Computer Bartack Series</h3>
-                <p class="group-desc">High-precision bartacking for reinforcing stress points on garments, footwear and bags.</p>
+                <h3><i class="fas fa-circle-notch"></i><span data-i18n="ser_bartack_t">Computer Bartack Series</span></h3>
+                <p class="group-desc" data-i18n="ser_bartack_d">High-precision bartacking for reinforcing stress points on garments, footwear and bags.</p>
                 <div class="series-tags">
                     <span class="series-tag">CSM-430D</span>
                     <span class="series-tag">CSM-438D</span>
@@ -963,8 +1012,8 @@
             </div>
 
             <div class="series-group">
-                <h3><i class="fas fa-shapes"></i>Computer Pattern Sewing Series (G)</h3>
-                <p class="group-desc">Programmable pattern sewing with fast, easy pattern editing for high-quality stitching on varied designs.</p>
+                <h3><i class="fas fa-shapes"></i><span data-i18n="ser_patg_t">Computer Pattern Sewing Series (G)</span></h3>
+                <p class="group-desc" data-i18n="ser_patg_d">Programmable pattern sewing with fast, easy pattern editing for high-quality stitching on varied designs.</p>
                 <div class="series-tags">
                     <span class="series-tag">CSM-1310G</span>
                     <span class="series-tag">CSM-2210G</span>
@@ -975,8 +1024,8 @@
             </div>
 
             <div class="series-group">
-                <h3><i class="fas fa-layer-group"></i>Computer Pattern Sewing Series (H)</h3>
-                <p class="group-desc">The H-line pattern sewing machines for premium-quality stitching with rapid pattern editing.</p>
+                <h3><i class="fas fa-layer-group"></i><span data-i18n="ser_path_t">Computer Pattern Sewing Series (H)</span></h3>
+                <p class="group-desc" data-i18n="ser_path_d">The H-line pattern sewing machines for premium-quality stitching with rapid pattern editing.</p>
                 <div class="series-tags">
                     <span class="series-tag">CSM-1010H</span>
                     <span class="series-tag">CSM-1310HG</span>
@@ -990,8 +1039,8 @@
             </div>
 
             <div class="series-group">
-                <h3><i class="fas fa-stamp"></i>Computer Punch-Sewing Series</h3>
-                <p class="group-desc">A single setup completes hole-punching, embroidery dotting and sewing in one automated cycle — one operator can run multiple machines.</p>
+                <h3><i class="fas fa-stamp"></i><span data-i18n="ser_punch_t">Computer Punch-Sewing Series</span></h3>
+                <p class="group-desc" data-i18n="ser_punch_d">A single setup completes hole-punching, embroidery dotting and sewing in one automated cycle — one operator can run multiple machines.</p>
                 <div class="series-tags">
                     <span class="series-tag">CSM-2210GB</span>
                     <span class="series-tag">CSM-3020GB</span>
@@ -999,8 +1048,8 @@
             </div>
 
             <div class="series-group">
-                <h3><i class="fas fa-tshirt"></i>Apparel Automation Series</h3>
-                <p class="group-desc">Specialized equipment for garment production lines: buttonhole, template and pocket machines.</p>
+                <h3><i class="fas fa-tshirt"></i><span data-i18n="ser_apparel_t">Apparel Automation Series</span></h3>
+                <p class="group-desc" data-i18n="ser_apparel_d">Specialized equipment for garment production lines: buttonhole, template and pocket machines.</p>
                 <div class="series-tags">
                     <span class="series-tag">Computer Buttonhole Machine</span>
                     <span class="series-tag">Auto Apparel Template Machine</span>
@@ -1015,8 +1064,8 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2>Trusted by Manufacturers</h2>
-                <p>See what our customers across the garment and footwear industry say about working with Yinwei.</p>
+                <h2 data-i18n="testi_title">Trusted by Manufacturers</h2>
+                <p data-i18n="testi_desc">See what our customers across the garment and footwear industry say about working with Yinwei.</p>
             </div>
 
             <div class="testimonial-slider">
@@ -1040,17 +1089,17 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <h2>About Yinwei (YWK)</h2>
-                <p>A leading high-tech enterprise dedicated to automated, special-purpose industrial sewing machines.</p>
+                <h2 data-i18n="about_title">About Yinwei (YWK)</h2>
+                <p data-i18n="about_subtitle">A leading high-tech enterprise dedicated to automated, special-purpose industrial sewing machines.</p>
             </div>
 
             <div class="about-grid">
                 <div class="about-text">
-                    <h2>Founded in Hong Kong, Serving the World</h2>
-                    <p>Founded in 2006 and headquartered in the Hong Kong region, <strong>Yinwei Trade (HK) Co., Ltd.</strong> is a high-tech enterprise integrating the R&D, production, sales and service of automated special-purpose industrial sewing machines.</p>
-                    <p>Our mainland China operations are based in Zhongshan City, while a global network of overseas branches spans Taiwan, Ho Chi Minh City (Vietnam), Hai Phong (Vietnam), Cambodia, Bangladesh, India and Myanmar.</p>
-                    <p>Yinwei provides end customers with personalized on-site solutions and custom pattern templates tailored to each production process — solving the real challenges factories face every day.</p>
-                    <div class="about-highlight">"Technology is the primary productive force; service is the primary competitive advantage." Yinwei's products and service have earned unanimous praise from customers at home and abroad — including major brands such as Adidas and Nike.</div>
+                    <h2 data-i18n="about_h">Founded in Hong Kong, Serving the World</h2>
+                    <p data-i18n="about_p1">Founded in 2006 and headquartered in the Hong Kong region, <strong>Yinwei Trade (HK) Co., Ltd.</strong> is a high-tech enterprise integrating the R&D, production, sales and service of automated special-purpose industrial sewing machines.</p>
+                    <p data-i18n="about_p2">Our mainland China operations are based in Zhongshan City, while a global network of overseas branches spans Taiwan, Ho Chi Minh City (Vietnam), Hai Phong (Vietnam), Cambodia, Bangladesh, India and Myanmar.</p>
+                    <p data-i18n="about_p3">Yinwei provides end customers with personalized on-site solutions and custom pattern templates tailored to each production process — solving the real challenges factories face every day.</p>
+                    <div class="about-highlight" data-i18n-html="about_highlight">"Technology is the primary productive force; service is the primary competitive advantage." Yinwei's products and service have earned unanimous praise from customers at home and abroad — including major brands such as Adidas and Nike.</div>
                 </div>
                 <div class="about-image">
                     <img src="https://www.chanchao.com.tw/exhibitorservicefiles/products/FTXTMMRW2019_276148_51721_C.jpg" alt="Yinwei Industrial Sewing Machine">
@@ -1060,23 +1109,23 @@
             <div class="about-points">
                 <div class="point">
                     <i class="fas fa-flag"></i>
-                    <h4>Since 2006</h4>
-                    <p>Nearly two decades of sewing expertise</p>
+                    <h4 data-i18n="abp_year_t">Since 2006</h4>
+                    <p data-i18n="abp_year_d">Nearly two decades of sewing expertise</p>
                 </div>
                 <div class="point">
                     <i class="fas fa-flask"></i>
-                    <h4>Strong R&D</h4>
-                    <p>A banner of China's automation sewing technology</p>
+                    <h4 data-i18n="abp_rd_t">Strong R&D</h4>
+                    <p data-i18n="abp_rd_d">A banner of China's automation sewing technology</p>
                 </div>
                 <div class="point">
                     <i class="fas fa-network-wired"></i>
-                    <h4>Global Network</h4>
-                    <p>Sales & service across Asia and beyond</p>
+                    <h4 data-i18n="abp_net_t">Global Network</h4>
+                    <p data-i18n="abp_net_d">Sales & service across Asia and beyond</p>
                 </div>
                 <div class="point">
                     <i class="fas fa-award"></i>
-                    <h4>Trusted by Brands</h4>
-                    <p>Approved by Adidas, Nike and more</p>
+                    <h4 data-i18n="abp_brand_t">Trusted by Brands</h4>
+                    <p data-i18n="abp_brand_d">Approved by Adidas, Nike and more</p>
                 </div>
             </div>
         </div>
@@ -1087,15 +1136,15 @@
         <div class="container">
             <div class="branch-content">
                 <div class="branch-text">
-                    <h2>Overseas Branch — Yinwei (BD) Trade Co., Ltd.</h2>
-                    <p>Bangladesh is one of Yinwei's most important overseas markets. Through <strong>Yinwei (BD) Trade Co., Ltd.</strong>, we not only supply intelligent sewing machines but also deliver automation upgrade services to local garment, footwear and bag factories.</p>
-                    <p>The branch provides intelligent sewing automation technology designed to lift production efficiency, and operates a local after-sales service center offering technical support and maintenance.</p>
-                    <p><strong>Industries served:</strong> synthetic & genuine leather footwear, bags, and garment manufacturing.</p>
+                    <h2 data-i18n="branch_title">Overseas Branch — Yinwei (BD) Trade Co., Ltd.</h2>
+                    <p data-i18n="branch_p1">Bangladesh is one of Yinwei's most important overseas markets. Through <strong>Yinwei (BD) Trade Co., Ltd.</strong>, we not only supply intelligent sewing machines but also deliver automation upgrade services to local garment, footwear and bag factories.</p>
+                    <p data-i18n="branch_p2">The branch provides intelligent sewing automation technology designed to lift production efficiency, and operates a local after-sales service center offering technical support and maintenance.</p>
+                    <p data-i18n="branch_p3"><strong>Industries served:</strong> synthetic & genuine leather footwear, bags, and garment manufacturing.</p>
 
                     <div class="branch-detail">
-                        <p><strong>Company:</strong> Yinwei (BD) Trade Co., Ltd.</p>
-                        <p><strong>Address:</strong> R/A, Flat No. C-01, Road 5, Mehnaj Tower, Building No. 14, 1 South Kulshi Road, Chattogram, Bangladesh</p>
-                        <p><strong>Services:</strong> Sales · Production Automation · After-Sales Service Center</p>
+                        <p data-i18n-html="branch_company"><strong>Company:</strong> Yinwei (BD) Trade Co., Ltd.</p>
+                        <p data-i18n-html="branch_address"><strong>Address:</strong> R/A, Flat No. C-01, Road 5, Mehnaj Tower, Building No. 14, 1 South Kulshi Road, Chattogram, Bangladesh</p>
+                        <p data-i18n-html="branch_services"><strong>Services:</strong> Sales · Production Automation · After-Sales Service Center</p>
                     </div>
                 </div>
                 <div class="branch-icon">
@@ -1108,9 +1157,9 @@
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
-            <h2>Upgrade Your Production Line Today</h2>
-            <p>Contact Yinwei to discover how our intelligent industrial sewing machines can boost your factory's efficiency, quality and profitability.</p>
-            <button class="cta-button">Get in Touch</button>
+            <h2 data-i18n="cta_title">Upgrade Your Production Line Today</h2>
+            <p data-i18n="cta_desc">Contact Yinwei to discover how our intelligent industrial sewing machines can boost your factory's efficiency, quality and profitability.</p>
+            <button class="cta-button" data-i18n="cta_btn">Get in Touch</button>
         </div>
     </section>
 
@@ -1123,48 +1172,293 @@
                         <img src="https://www.chanchao.com.tw/exhibitorservicefiles/logo/276148_B.jpg" alt="Yinwei Logo" class="logo-img">
                         <div class="logo-text">Yinwei<span> (YWK)</span></div>
                     </div>
-                    <p style="margin-top: 20px; color: #aaa;">Manufacturer of intelligent industrial sewing machines, delivering automation solutions to garment, footwear and bag factories worldwide.</p>
+                    <p style="margin-top: 20px; color: #aaa;" data-i18n="footer_desc">Manufacturer of intelligent industrial sewing machines, delivering automation solutions to garment, footwear and bag factories worldwide.</p>
                 </div>
 
                 <div class="footer-column">
-                    <h3>Products</h3>
+                    <h3 data-i18n="footer_products">Products</h3>
                     <ul class="footer-links">
-                        <li><a href="#series">Bartack Machines</a></li>
-                        <li><a href="#series">Pattern Sewing Machines</a></li>
-                        <li><a href="#series">Punch-Sewing Machines</a></li>
-                        <li><a href="#products">Lockstitch & Heavy-Duty</a></li>
-                        <li><a href="#series">Buttonhole & Template</a></li>
-                        <li><a href="#features">Spare Parts & Accessories</a></li>
+                        <li><a href="#series" data-i18n="f_prod_bar">Bartack Machines</a></li>
+                        <li><a href="#series" data-i18n="f_prod_pat">Pattern Sewing Machines</a></li>
+                        <li><a href="#series" data-i18n="f_prod_punch">Punch-Sewing Machines</a></li>
+                        <li><a href="#products" data-i18n="f_prod_lock">Lockstitch & Heavy-Duty</a></li>
+                        <li><a href="#series" data-i18n="f_prod_btn">Buttonhole & Template</a></li>
+                        <li><a href="#features" data-i18n="f_prod_spare">Spare Parts & Accessories</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column">
-                    <h3>Company</h3>
+                    <h3 data-i18n="footer_company">Company</h3>
                     <ul class="footer-links">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#features">Features</a></li>
-                        <li><a href="#benefits">Benefits</a></li>
-                        <li><a href="#branch">Overseas Branch</a></li>
-                        <li><a href="#video">Video</a></li>
+                        <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+                        <li><a href="#features" data-i18n="nav_features">Features</a></li>
+                        <li><a href="#benefits" data-i18n="nav_benefits">Benefits</a></li>
+                        <li><a href="#branch" data-i18n="nav_overseas">Overseas Branch</a></li>
+                        <li><a href="#video" data-i18n="footer_video">Video</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-column footer-contact">
-                    <h3>Contact</h3>
-                    <p><i class="fas fa-map-marker-alt"></i>Room 1102, Sanxiang Financial Business Center, No. 3 Zhenhua Road, Sanxiang Town, Zhongshan City, China</p>
+                    <h3 data-i18n="footer_contact">Contact</h3>
+                    <p><i class="fas fa-map-marker-alt"></i><span data-i18n="footer_addr">Room 1102, Sanxiang Financial Business Center, No. 3 Zhenhua Road, Sanxiang Town, Zhongshan City, China</span></p>
                     <p><i class="fas fa-phone"></i><a href="tel:+8613824795666" style="color:#aaa;">+86 138 2479 5666</a></p>
                     <p><i class="fas fa-envelope"></i><a href="mailto:yinweihk@126.com" style="color:#aaa;">yinweihk@126.com</a></p>
-                    <p><i class="fas fa-globe"></i>Overseas: Yinwei (BD) Trade Co., Ltd., Chattogram, Bangladesh</p>
+                    <p><i class="fas fa-globe"></i><span data-i18n="footer_overseas">Overseas: Yinwei (BD) Trade Co., Ltd., Chattogram, Bangladesh</span></p>
                 </div>
             </div>
 
             <div class="copyright">
-                <p>&copy; 2026 Yinwei (YWK). All rights reserved.</p>
+                <p data-i18n="footer_copy">&copy; 2026 Yinwei (YWK). All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // ====== Language / i18n ======
+        const i18n = {
+            zh: {
+                page_title: "银威 (YWK) | 智能工业缝纫设备",
+                nav_about: "关于我们",
+                nav_features: "功能特点",
+                nav_benefits: "核心优势",
+                nav_products: "产品中心",
+                nav_series: "产品系列",
+                nav_testimonials: "客户评价",
+                nav_overseas: "海外分支",
+                nav_contact: "联系我们",
+                hero_title: "智能<span>工业缝纫</span>解决方案",
+                hero_desc: "银威 (YWK) 专注于设计制造智能工业缝纫设备，为全球服装、鞋帽及皮革制品工厂带来自动化与高效生产。精工智造，为生产而生。",
+                hero_quote: "获取报价",
+                hero_video: "观看视频",
+                video_title: "设备运行实拍",
+                video_desc: "观看我们的智能缝纫技术在真实生产环境中保持稳定高速的缝制表现。",
+                video_fallback: "您的浏览器不支持视频播放。",
+                features_title: "面向现代制造的智能特性",
+                features_desc: "银威将智能控制系统与精密机械相结合，提供可靠、自动化的缝纫性能。",
+                feat_control_t: "智能控制",
+                feat_control_d: "可编程伺服系统与微电脑控制，确保精准的线迹成型与一致的缝缝品质。",
+                feat_auto_t: "自动作业",
+                feat_auto_d: "自动剪线、针位定位与送料，降低操作强度，输出整齐统一。",
+                feat_energy_t: "高效节能",
+                feat_energy_d: "直驱伺服电机较传统离合电机可节能高达 60%。",
+                feat_rugged_t: "坚固结构",
+                feat_rugged_d: "重型铸铁机架与精密加工部件，保障 24 小时连续生产的稳定与长寿。",
+                feat_speed_t: "高速性能",
+                feat_speed_d: "最高 5000 针/分钟，满足大型服装与鞋企的产能需求。",
+                feat_support_t: "售后服务",
+                feat_support_d: "专属服务中心与全球配件网络，让产线持续运转无忧。",
+                benefits_title: "为何选择银威？",
+                benefits_desc: "携手深受亚洲服装、鞋帽及箱包工厂信赖的缝纫科技制造商。",
+                ben_prod_t: "更高产能",
+                ben_prod_d: "自动化与智能控制提升产线产出，降低对熟练工人的依赖。",
+                ben_cost_t: "更低成本",
+                ben_cost_d: "节能直驱电机与耐用部件，削减电费与维护开支。",
+                ben_qual_t: "稳定品质",
+                ben_qual_d: "精准线迹控制，交付符合国际品牌标准的一致缝缝。",
+                ben_glob_t: "全球服务",
+                ben_glob_d: "海外分支与本地服务中心（含孟加拉 Yinwei BD）持续为您提供支持。",
+                products_title: "精选缝纫设备",
+                products_desc: "为多种材料与工艺打造的智能工业缝纫设备精选。",
+                prod_lock_t: "智能平缝机",
+                prod_lock_d: "电脑平缝机，直驱伺服电机，自动剪线与针位定位，适用于服装生产。",
+                prod_heavy_t: "重型自动化设备",
+                prod_heavy_d: "加厚机型，适用于合成革、真皮及箱包，专为厚料高扭矩缝制打造。",
+                series_title: "YWK 产品系列",
+                series_desc: "全套智能电脑缝纫设备，涵盖打结、花样缝、冲缝与锁眼等应用。",
+                ser_bartack_t: "电脑打结系列",
+                ser_bartack_d: "高精度打结，强化服装、鞋帽与箱包受力点。",
+                ser_patg_t: "电脑花样缝系列 (G)",
+                ser_patg_d: "可编程花样缝，快速便捷的图形编辑，呈现多样设计的高品质线迹。",
+                ser_path_t: "电脑花样缝系列 (H)",
+                ser_path_d: "H 线花样缝设备，优质线迹与极速图形编辑。",
+                ser_punch_t: "电脑冲缝系列",
+                ser_punch_d: "一次装夹完成冲孔、绣点与缝制，一名工人可看管多台设备。",
+                ser_apparel_t: "服装自动化系列",
+                ser_apparel_d: "服装产线专用设备：锁眼、模板与口袋机。",
+                testi_title: "客户信赖之选",
+                testi_desc: "听听服装与鞋业客户对与银威合作的评价。",
+                about_title: "关于银威 (YWK)",
+                about_subtitle: "专注于自动化专用工业缝纫设备的高新技术企业。",
+                about_h: "植根香港，服务全球",
+                about_p1: "银威贸易 (香港) 有限公司成立于 2006 年，总部位于香港地区，是一家集自动化专用工业缝纫设备研发、生产、销售与服务于一体的高新技术企业。",
+                about_p2: "我们的大陆运营基地位于中山市，海外分支网络遍及台湾、越南胡志明市与海防、柬埔寨、孟加拉、印度及缅甸。",
+                about_p3: "银威为终端客户提供贴合各生产工序的现场定制方案与花样模板，切实解决工厂每日面临的难题。",
+                about_highlight: "“科技是第一生产力，服务是第一竞争力。” 银威的产品与服务赢得了国内外客户的一致好评，包括阿迪达斯、耐克等国际品牌。",
+                abp_year_t: "始于 2006",
+                abp_year_d: "近二十年的缝纫专业积淀",
+                abp_rd_t: "研发强劲",
+                abp_rd_d: "中国自动化缝纫技术的旗帜",
+                abp_net_t: "全球网络",
+                abp_net_d: "销售与服务遍布亚洲及更广区域",
+                abp_brand_t: "品牌信赖",
+                abp_brand_d: "获阿迪达斯、耐克等认可",
+                branch_title: "海外分支 —— 银威 (BD) 贸易有限公司",
+                branch_p1: "孟加拉是银威最重要的海外市场之一。通过<strong>银威 (BD) 贸易有限公司</strong>，我们不仅供应智能缝纫设备，更为当地服装、鞋帽与箱包工厂提供自动化升级服务。",
+                branch_p2: "该分支提供提升生产效率的智能缝纫自动化技术，并运营本地售后服务中心，提供技术支持与维护。",
+                branch_p3: "<strong>服务行业：</strong>合成革与真皮鞋类、箱包及服装制造。",
+                branch_company: "<strong>公司：</strong>银威 (BD) 贸易有限公司",
+                branch_address: "<strong>地址：</strong>孟加拉吉大港 South Kulshi 路 1 号 Mehnaj Tower 14 栋 C-01 室，5 号路",
+                branch_services: "<strong>服务：</strong>销售 · 生产自动化 · 售后服务中心",
+                cta_title: "立即升级您的产线",
+                cta_desc: "联系银威，了解我们的智能工业缝纫设备如何提升工厂的效率、品质与利润。",
+                cta_btn: "联系我们",
+                footer_desc: "智能工业缝纫设备制造商，为全球服装、鞋帽与箱包工厂提供自动化方案。",
+                footer_products: "产品",
+                f_prod_bar: "打结机",
+                f_prod_pat: "花样缝机",
+                f_prod_punch: "冲缝机",
+                f_prod_lock: "平缝与重型机",
+                f_prod_btn: "锁眼与模板机",
+                f_prod_spare: "配件与耗材",
+                footer_company: "公司",
+                footer_video: "视频",
+                footer_contact: "联系",
+                footer_addr: "中国广东省中山市三乡镇振华路 3 号三乡金融商务中心 1102 室",
+                footer_overseas: "海外：银威 (BD) 贸易有限公司，孟加拉吉大港",
+                footer_copy: "© 2026 银威 (YWK). 版权所有。"
+            },
+            en: {
+                page_title: "Yinwei (YWK) | Intelligent Industrial Sewing Machines",
+                nav_about: "About",
+                nav_features: "Features",
+                nav_benefits: "Benefits",
+                nav_products: "Products",
+                nav_series: "Series",
+                nav_testimonials: "Testimonials",
+                nav_overseas: "Overseas",
+                nav_contact: "Contact Us",
+                hero_title: "Intelligent <span>Industrial Sewing</span> Solutions",
+                hero_desc: "Yinwei (YWK) designs and manufactures smart industrial sewing machines that drive automation and efficiency for garment, footwear and leather goods factories worldwide. Engineered for precision, built for production.",
+                hero_quote: "Request a Quote",
+                hero_video: "Watch Video",
+                video_title: "See the Machines in Action",
+                video_desc: "Watch our intelligent sewing technology delivering consistent, high-speed stitching in real production environments.",
+                video_fallback: "Your browser does not support the video tag.",
+                features_title: "Smart Features for Modern Manufacturing",
+                features_desc: "Yinwei integrates intelligent control systems and precision mechanics to deliver reliable, automated sewing performance.",
+                feat_control_t: "Intelligent Control",
+                feat_control_d: "Programmable servo systems and microprocessor-based controls ensure precise stitch formation and consistent seam quality.",
+                feat_auto_t: "Automated Operation",
+                feat_auto_d: "Auto thread trimming, needle positioning and fabric feeding reduce operator workload and deliver uniform output.",
+                feat_energy_t: "Energy Efficient",
+                feat_energy_d: "Direct-drive servo motors lower power consumption by up to 60% compared with traditional clutch motors.",
+                feat_rugged_t: "Rugged Construction",
+                feat_rugged_d: "Heavy-duty cast iron frames and precision-machined parts guarantee stability and long service life in 24/7 production.",
+                feat_speed_t: "High-Speed Performance",
+                feat_speed_d: "Stitch rates up to 5,000 SPM deliver the throughput demanded by large-scale garment and footwear manufacturers.",
+                feat_support_t: "After-Sales Support",
+                feat_support_d: "Dedicated service centers and a global spare parts network keep your production lines running without downtime.",
+                benefits_title: "Why Choose Yinwei?",
+                benefits_desc: "Partner with a sewing technology manufacturer trusted by garment, footwear and bag factories across Asia.",
+                ben_prod_t: "Higher Productivity",
+                ben_prod_d: "Automation and intelligent controls lift line output and reduce reliance on skilled operators.",
+                ben_cost_t: "Lower Operating Cost",
+                ben_cost_d: "Energy-efficient direct-drive motors and durable components cut power bills and maintenance spend.",
+                ben_qual_t: "Consistent Quality",
+                ben_qual_d: "Precision stitch control delivers uniform seams that meet the standards of global brands.",
+                ben_glob_t: "Global Service",
+                ben_glob_d: "Overseas branches and local service centers — including Yinwei (BD) in Bangladesh — keep customers supported.",
+                products_title: "Featured Sewing Machines",
+                products_desc: "A selection of our intelligent industrial sewing machines engineered for diverse materials and applications.",
+                prod_lock_t: "Intelligent Lockstitch Machine",
+                prod_lock_d: "Computerized lockstitch sewing machine with direct-drive servo motor, auto thread trimming and needle positioning for garment production.",
+                prod_heavy_t: "Heavy-Duty Automated Machine",
+                prod_heavy_d: "Reinforced machine for synthetic leather, genuine leather and bags — engineered for thick materials and high-torque stitching.",
+                series_title: "YWK Product Series",
+                series_desc: "Our complete range of intelligent computerized sewing machines, covering bartack, pattern tacking, punch-sewing and buttonhole applications.",
+                ser_bartack_t: "Computer Bartack Series",
+                ser_bartack_d: "High-precision bartacking for reinforcing stress points on garments, footwear and bags.",
+                ser_patg_t: "Computer Pattern Sewing Series (G)",
+                ser_patg_d: "Programmable pattern sewing with fast, easy pattern editing for high-quality stitching on varied designs.",
+                ser_path_t: "Computer Pattern Sewing Series (H)",
+                ser_path_d: "The H-line pattern sewing machines for premium-quality stitching with rapid pattern editing.",
+                ser_punch_t: "Computer Punch-Sewing Series",
+                ser_punch_d: "A single setup completes hole-punching, embroidery dotting and sewing in one automated cycle — one operator can run multiple machines.",
+                ser_apparel_t: "Apparel Automation Series",
+                ser_apparel_d: "Specialized equipment for garment production lines: buttonhole, template and pocket machines.",
+                testi_title: "Trusted by Manufacturers",
+                testi_desc: "See what our customers across the garment and footwear industry say about working with Yinwei.",
+                about_title: "About Yinwei (YWK)",
+                about_subtitle: "A leading high-tech enterprise dedicated to automated, special-purpose industrial sewing machines.",
+                about_h: "Founded in Hong Kong, Serving the World",
+                about_p1: "Founded in 2006 and headquartered in the Hong Kong region, <strong>Yinwei Trade (HK) Co., Ltd.</strong> is a high-tech enterprise integrating the R&D, production, sales and service of automated special-purpose industrial sewing machines.",
+                about_p2: "Our mainland China operations are based in Zhongshan City, while a global network of overseas branches spans Taiwan, Ho Chi Minh City (Vietnam), Hai Phong (Vietnam), Cambodia, Bangladesh, India and Myanmar.",
+                about_p3: "Yinwei provides end customers with personalized on-site solutions and custom pattern templates tailored to each production process — solving the real challenges factories face every day.",
+                about_highlight: "\"Technology is the primary productive force; service is the primary competitive advantage.\" Yinwei's products and service have earned unanimous praise from customers at home and abroad — including major brands such as Adidas and Nike.",
+                abp_year_t: "Since 2006",
+                abp_year_d: "Nearly two decades of sewing expertise",
+                abp_rd_t: "Strong R&D",
+                abp_rd_d: "A banner of China's automation sewing technology",
+                abp_net_t: "Global Network",
+                abp_net_d: "Sales & service across Asia and beyond",
+                abp_brand_t: "Trusted by Brands",
+                abp_brand_d: "Approved by Adidas, Nike and more",
+                branch_title: "Overseas Branch — Yinwei (BD) Trade Co., Ltd.",
+                branch_p1: "Bangladesh is one of Yinwei's most important overseas markets. Through <strong>Yinwei (BD) Trade Co., Ltd.</strong>, we not only supply intelligent sewing machines but also deliver automation upgrade services to local garment, footwear and bag factories.",
+                branch_p2: "The branch provides intelligent sewing automation technology designed to lift production efficiency, and operates a local after-sales service center offering technical support and maintenance.",
+                branch_p3: "<strong>Industries served:</strong> synthetic & genuine leather footwear, bags, and garment manufacturing.",
+                branch_company: "<strong>Company:</strong> Yinwei (BD) Trade Co., Ltd.",
+                branch_address: "<strong>Address:</strong> R/A, Flat No. C-01, Road 5, Mehnaj Tower, Building No. 14, 1 South Kulshi Road, Chattogram, Bangladesh",
+                branch_services: "<strong>Services:</strong> Sales · Production Automation · After-Sales Service Center",
+                cta_title: "Upgrade Your Production Line Today",
+                cta_desc: "Contact Yinwei to discover how our intelligent industrial sewing machines can boost your factory's efficiency, quality and profitability.",
+                cta_btn: "Get in Touch",
+                footer_desc: "Manufacturer of intelligent industrial sewing machines, delivering automation solutions to garment, footwear and bag factories worldwide.",
+                footer_products: "Products",
+                f_prod_bar: "Bartack Machines",
+                f_prod_pat: "Pattern Sewing Machines",
+                f_prod_punch: "Punch-Sewing Machines",
+                f_prod_lock: "Lockstitch & Heavy-Duty",
+                f_prod_btn: "Buttonhole & Template",
+                f_prod_spare: "Spare Parts & Accessories",
+                footer_company: "Company",
+                footer_video: "Video",
+                footer_contact: "Contact",
+                footer_addr: "Room 1102, Sanxiang Financial Business Center, No. 3 Zhenhua Road, Sanxiang Town, Zhongshan City, China",
+                footer_overseas: "Overseas: Yinwei (BD) Trade Co., Ltd., Chattogram, Bangladesh",
+                footer_copy: "© 2026 Yinwei (YWK). All rights reserved."
+            }
+        };
+
+        // Bilingual testimonials data
+        const testimonialsI18n = {
+            zh: [
+                { text: "换上银威智能设备后，我们的产线产能提升了 35%，不良率显著下降。吉大港 Yinwei BD 的本地服务非常出色，让我们 24 小时持续运转。", name: "Rashed Khan", position: "生产经理，Chattogram Apparel Ltd.", initials: "RK" },
+                { text: "重型机轻松应对合成革与真皮，线迹稳定，直驱电机明显降低了我们的电费开支。", name: "Mohammad Ali", position: "工厂主，Delta Footwear，孟加拉", initials: "MA" },
+                { text: "银威的自动化升级改造了我们的箱包产线，安装、培训与售后都由本地团队专业完成。", name: "Tanvir Ahmed", position: "运营总监，Prime Bags Manufacturing", initials: "TA" }
+            ],
+            en: [
+                { text: "After switching to Yinwei intelligent machines, our line output rose by 35% and defect rates dropped sharply. The local service from Yinwei BD in Chattogram has been outstanding — they keep us running 24/7.", name: "Rashed Khan", position: "Production Manager, Chattogram Apparel Ltd.", initials: "RK" },
+                { text: "The heavy-duty machines handle synthetic leather and genuine leather effortlessly. Stitch quality is consistent and the direct-drive motor has cut our electricity bill noticeably.", name: "Mohammad Ali", position: "Factory Owner, Delta Footwear, Bangladesh", initials: "MA" },
+                { text: "Yinwei's automation upgrade transformed our bag production line. Setup, training and after-sales support were all handled professionally by their local team.", name: "Tanvir Ahmed", position: "Operations Director, Prime Bags Manufacturing", initials: "TA" }
+            ]
+        };
+
+        let currentLang = 'en';
+
+        function applyLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = (lang === 'zh') ? 'zh-CN' : 'en';
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key] !== undefined) el.textContent = i18n[lang][key];
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (i18n[lang][key] !== undefined) el.innerHTML = i18n[lang][key];
+            });
+            const titleEl = document.querySelector('title[data-i18n]');
+            if (titleEl) titleEl.textContent = i18n[lang][titleEl.getAttribute('data-i18n')];
+            document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+            if (testimonialElement) updateTestimonial();
+        }
+
+        function setLanguage(lang) {
+            applyLanguage(lang);
+            try { localStorage.setItem('yw_lang', lang); } catch (e) {}
+        }
+
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
@@ -1212,37 +1506,22 @@
         });
 
         // Testimonial slider
-        const testimonials = [
-            {
-                text: "After switching to Yinwei intelligent machines, our line output rose by 35% and defect rates dropped sharply. The local service from Yinwei BD in Chattogram has been outstanding — they keep us running 24/7.",
-                name: "Rashed Khan",
-                position: "Production Manager, Chattogram Apparel Ltd.",
-                initials: "RK"
-            },
-            {
-                text: "The heavy-duty machines handle synthetic leather and genuine leather effortlessly. Stitch quality is consistent and the direct-drive motor has cut our electricity bill noticeably.",
-                name: "Mohammad Ali",
-                position: "Factory Owner, Delta Footwear, Bangladesh",
-                initials: "MA"
-            },
-            {
-                text: "Yinwei's automation upgrade transformed our bag production line. Setup, training and after-sales support were all handled professionally by their local team.",
-                name: "Tanvir Ahmed",
-                position: "Operations Director, Prime Bags Manufacturing",
-                initials: "TA"
-            }
-        ];
-
         let currentTestimonial = 0;
         const testimonialElement = document.querySelector('.testimonial');
 
+        function getTestimonials() {
+            return testimonialsI18n[currentLang] || testimonialsI18n.en;
+        }
+
         function rotateTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            const list = getTestimonials();
+            currentTestimonial = (currentTestimonial + 1) % list.length;
             updateTestimonial();
         }
 
         function updateTestimonial() {
-            const testimonial = testimonials[currentTestimonial];
+            const list = getTestimonials();
+            const testimonial = list[currentTestimonial];
             testimonialElement.innerHTML = `
                 <div class="testimonial-text">"${testimonial.text}"</div>
                 <div class="testimonial-author">
@@ -1263,6 +1542,16 @@
                 window.location.href = 'mailto:yinweihk@126.com';
             });
         });
+
+        // Initialize language (persist via localStorage, default to browser pref)
+        (function initLang() {
+            let saved = 'en';
+            try { saved = localStorage.getItem('yw_lang'); } catch (e) {}
+            if (!saved) {
+                saved = (navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+            }
+            applyLanguage(saved);
+        })();
     </script>
 </body>
 </html>
